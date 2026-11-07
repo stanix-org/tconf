@@ -1,0 +1,26 @@
+TMAKE_DIR = $(SRCDIR)/make
+include $(TMAKE_DIR)/tmake-init.mk
+
+PACKAGE = tconf
+
+BIN = $(BUILDDIR)/tconfer
+BINMODE ?= 0755
+FILESGROUPS += BIN
+
+$(BUILDDIR)/tconfer : $(SRCDIR)/tconfer.sh
+	@echo "GEN tconfer"
+	$(Q)echo "#/bin/sh" > $(BUILDDIR)/prologue.sh
+	$(Q)echo "" >> $(BUILDDIR)/prologue.sh
+	$(Q)echo "TCONFER_DIR=$(SHAREDIR)/tconfer" >> $(BUILDDIR)/prologue.sh
+	$(Q)echo "" >> $(BUILDDIR)/prologue.sh
+	$(Q)cat $(BUILDDIR)/prologue.sh $^ > $@
+
+TCONF = $(SRCDIR)/tconf.sh
+TCONFDIR = $(SHAREDIR)/tconfer
+FILESGROUPS += TCONF
+
+TMAKE = $(wildcard $(SRCDIR)/make/tmake-*.mk)
+TMAKEDIR = $(SHAREDIR)/tconfer/make
+FILESGROUPS += TMAKE
+
+include $(TMAKE_DIR)/tmake-files.mk

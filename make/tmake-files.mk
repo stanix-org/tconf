@@ -1,3 +1,4 @@
+# this file is a part of tmake, get the latest version at https://github.com/stanix-org/tconf
 # makefile include to install files
 
 # look into FILES by default

@@ -1,0 +1,10 @@
+#!/bin/sh
+. "$(dirname "$0" )/tconf.sh"
+
+tconf_init "$@"
+
+tconf_find_os
+
+tconf_gen_makefiles "$SRCDIR/Makefile.in"
+
+tconf_fini

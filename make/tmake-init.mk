@@ -1,3 +1,4 @@
+# this file is a part of tmake, get the latest version at https://github.com/stanix-org/tconf
 # makefile include with default values
 
 MAKEFLAGS += --no-builtin-rules
@@ -5,6 +6,8 @@ MAKEFLAGS += --no-builtin-rules
 TOP ?= $(CURDIR)
 SRCDIR ?= $(CURDIR)
 -include $(TOP)/config.mk
+
+TMAKE_VERSION = 0.1.1
 
 CC ?= cc
 LD ?= ld
